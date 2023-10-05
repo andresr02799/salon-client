@@ -56,4 +56,4 @@ function SideBarPosgrados() {
     )
 }
 
-export default SideBarPosgrados
+export default SideBarPosgrados;

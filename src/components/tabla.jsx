@@ -64,7 +64,7 @@ function TablaDatos() {
         <form class='flex flex-col items-center'>
             {/* Campos para ingresar datos del elemento */}
             <div class='flex'>
-                
+
                 <InputText nameLabel="Nombre*" typeInput="text" placeholder="Ingrese el nombre del salon" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
 
                 <InputText nameLabel="Cantidad*" typeInput="number" numMin={1} placeholder="Ingrese la capacidad del salon" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
@@ -87,37 +87,42 @@ function TablaDatos() {
       <hr class="my-10 text-linecolor mx-28"/>
       <h1 class=' text-center mt-9 text-[25px]'>LISTA DE SALONES</h1>
       <div class='flex justify-center'>
-        <table class='border border-collapse text-center mx-32 my-10 w-full text-[18px]'>
-            <thead class="uppercase bg-resaltar border text-center">
-                <tr>
-                    <th class='border py-4'>ID</th>
-                    <th class='border'>Nombre</th>
-                    <th class='border'>Cantidad</th>
-                    <th class='border'>Estado</th>
-                    <th class='border'>Editar</th>
-                    <th class='border'>Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-                {items.map((item) => (
-                <tr key={item.id}>
-                    <td class='border py-2'>{item.id}</td>
-                    <td class='border'>{item.text}</td>
-                    <td class='border'>{item.quantity}</td>
-                    <td class='border'>{item.state}</td>
-                    <td class='border'>
-                    <button onClick={() => editItem(item)}><i class="bi bi-pencil-square text-2xl hover:text-midnight hover:text-xl"></i></button>
-                    </td>
-                    <td class='border'>
-                        <button onClick={() => deleteItem(item.id)}><i class="bi bi-trash text-2xl hover:text-redUnicauca hover:text-xl"></i></button>
-                    </td>
-                </tr>
-                ))}
-            </tbody>
-        </table>
+        {/* Condición para mostrar la tabla o el título */}
+        {items.length > 0 ? (
+            <table class='border border-collapse text-center mx-32 my-10 w-full text-[18px]'>
+                <thead class="uppercase bg-resaltar border text-center">
+                    <tr>
+                        <th class='border py-4'>ID</th>
+                        <th class='border'>Nombre</th>
+                        <th class='border'>Cantidad</th>
+                        <th class='border'>Estado</th>
+                        <th class='border'>Editar</th>
+                        <th class='border'>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {items.map((item) => (
+                    <tr key={item.id}>
+                        <td class='border py-2'>{item.id}</td>
+                        <td class='border'>{item.text}</td>
+                        <td class='border'>{item.quantity}</td>
+                        <td class='border'>{item.state}</td>
+                        <td class='border'>
+                        <button onClick={() => editItem(item)}><i class="bi bi-pencil-square text-2xl hover:text-midnight hover:text-xl"></i></button>
+                        </td>
+                        <td class='border'>
+                            <button onClick={() => deleteItem(item.id)}><i class="bi bi-trash text-2xl hover:text-redUnicauca hover:text-xl"></i></button>
+                        </td>
+                    </tr>
+                    ))}
+                </tbody>
+            </table>
+        ) : (
+            <h2 class='mt-10 mb-20'>NO SE HA REGISTRADO NINGUN SALON HASTA EL MOMENTO.</h2>
+        )}
       </div>
     </div>
   );
 }
 
-export default TablaDatos; 
+export default TablaDatos;

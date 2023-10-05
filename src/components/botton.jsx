@@ -8,4 +8,4 @@ function Boton(props) {
     
 }
 
-export default Boton
+export default Boton;

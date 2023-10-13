@@ -3,8 +3,19 @@ import React, { useState } from 'react';
 import InputText from './inputText';
 import Boton from './botton';
 import SelectOptions from './selectOptions';
+import { createPortal } from "react-dom";
+import { Modals } from './modal';
 
 function TablaDatos() {
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleButtonClick = (value) => {
+    setModalOpen(false);
+    setMessage(value);
+  };
+
     // Estados para almacenar datos y controlar formularios
   const [items, setItems] = useState([]);       // Almacena la lista de elementos
   const [inputValue, setInputValue] = useState('');  // Almacena el valor del campo de entrada de texto
@@ -111,8 +122,11 @@ function TablaDatos() {
                         <button onClick={() => editItem(item)}><i class="bi bi-pencil-square text-2xl hover:text-midnight hover:text-xl"></i></button>
                         </td>
                         <td class='border'>
-                            <button onClick={() => deleteItem(item.id)}><i class="bi bi-trash text-2xl hover:text-redUnicauca hover:text-xl"></i></button>
+                            <button onClick={() => setModalOpen(true)}><i class="bi bi-trash text-2xl hover:text-redUnicauca hover:text-xl"></i></button>
                         </td>
+                        {modalOpen && createPortal(
+                          <Modals closeModal={handleButtonClick} onCancel={handleButtonClick} leyenda='Estas seguro(a) de eliminar este salon?' instruccion='Eliminar' icono='bi bi-trash text-5xl text-redUnicauca' clickBotonPrincipal={() => deleteItem(item.id)}/>,document.body
+                        )}
                     </tr>
                     ))}
                 </tbody>

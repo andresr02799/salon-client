@@ -15,6 +15,8 @@ export default {
       'whitetext': '#FFFFFF',
       'midnightdark': '#071745',
       'redUnicauca': '#DD1313',
+      'blackout': '#000000',
+      'redUnicaucadark': '#b00f0f'
     },
   },
   plugins: [],

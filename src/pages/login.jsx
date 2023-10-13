@@ -1,7 +1,6 @@
 import React from "react";
 import InputText from "../components/inputText";
 import Boton from "../components/botton";
-import Formulario from "../components/formulario";
 
 function Login() {
     return (

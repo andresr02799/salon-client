@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderBar from "../components/header";
 import SideBarFormReserva from "../components/sideBarFormReserva";
-import BotonReservar from '../components/botonReservar';
+import Boton from "../components/botton";
 
 function FormReserva() {
   return (
@@ -14,9 +14,7 @@ function FormReserva() {
 
         <div className="flex justify-center">
           <div className="mt-7 bg-midday rounded-md border-2 border-linecolor p-7 w-4/5">
-            <div className="flex justify-between mb-4">
-              
-            </div> 
+            <div className="flex justify-between mb-4"></div>
 
             <h1 className="text-center mt-4 text-[30px] text-gray-900">
               Diligencia el formulario para realizar la reserva
@@ -80,10 +78,9 @@ function FormReserva() {
                   required
                 />
               </div>
-
-                <div className="mt-7 text-center">
-                    <BotonReservar nameBoton="RESERVAR" /> {/* Utiliza el nuevo componente BotonReservar */}
-                </div>
+              <div className="flex justify-center">
+                <Boton nameBoton='RESERVAR' />
+              </div>
             </form>
           </div>
         </div>
